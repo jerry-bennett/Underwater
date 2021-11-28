@@ -35,7 +35,7 @@ AudioProcessorValueTreeState::ParameterLayout UnderwaterAudioProcessor::createPa
     params.push_back(std::make_unique<AudioParameterFloat>("PITCH","Pitch",-12.f,12.f,0.f));
     
     NormalisableRange<float> gainRange(0.f,1.f,.01f);
-    gainRange.setSkewForCentre(0.2f);
+    //gainRange.setSkewForCentre(0.2f);
     params.push_back(std::make_unique<AudioParameterFloat>("GAIN","Gain",gainRange,1.f));
     
     return {params.begin() , params.end()};
