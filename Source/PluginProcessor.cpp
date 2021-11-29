@@ -150,7 +150,7 @@ void UnderwaterAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, j
     {
         for (int n = 0; n < buffer.getNumSamples() ; ++n){
             
-            const int range = 2;
+            const int range = abs(2);
             long start = 0;
         
             struct timespec ts;
@@ -164,7 +164,7 @@ void UnderwaterAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, j
             
             float x = buffer.getReadPointer(channel)[n];
             float y = pitchShifter.processSample(x, channel);
-            float out = y; //* gainSmooth;
+            float out = (0.25 * x) + (0.75 * y); //* gainSmooth;
             buffer.getWritePointer(channel)[n] = out;
             // Metering
             //outValue[channel] = vuAnalysis.processSample(out, channel);
