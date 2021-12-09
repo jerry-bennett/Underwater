@@ -150,7 +150,7 @@ void UnderwaterAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, j
     {
         for (int n = 0; n < buffer.getNumSamples() ; ++n){
             
-            const int range = abs(2);
+            const int range = abs(4);
             long start = 0;
         
             struct timespec ts;
